@@ -1,12 +1,16 @@
 package menu;
+import java.io.IOException;
 import java.util.Scanner;
+
+import produto.controller.ProdutoController;
 import produto.model.ProdutoPromocao;
 import produto.repository.*; 
 
 public class Menu {
-	
-	public static void main(String[] args) {
 		
+	public static void main(String[] args) {
+	
+		ProdutoController produtos = new ProdutoController();
 		ProdutoPromocao pp1 = new ProdutoPromocao("Bring me the Horizon", "Camiseta", 850.0f);
 		
 		pp1.visualizar();
@@ -58,18 +62,30 @@ public class Menu {
 
 			case 1: // CRIAR PRODUTO
 				System.out.println("Adicione seu produto: ");
-				
+				produtos.criar();
+				keyPress();
 				break;
 			case 2: // REMOVER PRODUTO
 				System.out.println("Produto removido, volte sempre que precisar ❤️ 🤘 ");
+				produtos.remover();
+				keyPress();
 				break;
 
 			case 3: // LISTAR PRODUTO
 				System.out.println("Produto disponivel: ");
+				produtos.Listar();
+				keyPress();
 				break;
 			
 			}
-		}
+		} 
 	}
+	public static void keyPress() {
+		try {
+			System.out.println();
+			System.in.read();
+		}catch (IOException e) {
+			System.out.println("Opção invalida, tente novamente:");}
+		}
 }
 

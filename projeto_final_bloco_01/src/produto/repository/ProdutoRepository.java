@@ -2,10 +2,12 @@ package produto.repository;
 
 public interface ProdutoRepository {
 
-	//CRUD
-	
+	// CRUD
+
 	public void criar();
+
 	public void remover();
-	public void Listar ();
-	
+
+	public void Listar();
+
 }
